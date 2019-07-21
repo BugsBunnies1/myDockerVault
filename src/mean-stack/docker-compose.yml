@@ -1,0 +1,31 @@
+# Description:
+#
+# Angular.js, Express_Node.js, MongoDB
+
+
+# Specify docker-compose version
+# version: '1.12'
+
+# Define the services/containers to be run
+services:
+
+# Frontend
+  angular:              # name of the first service
+    build: angular-app
+    ports:
+      - "4200:4200"     # specify port mapping
+
+# Backend
+  express:          # name of the second service
+    build: express-server
+    ports:
+      - "3000:3000"     # specify port mapping
+    links:
+      - database        # link this service to the database service
+
+
+# Database
+  database:             # name of the third servicea
+    image: mongo        # specify image to build container from
+    ports:
+     - "27017:27017"    # specify port forwarding
