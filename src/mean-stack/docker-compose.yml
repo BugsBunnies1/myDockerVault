@@ -26,6 +26,6 @@ services:
 
 # Database
   database:             # name of the third servicea
-    image: mongo        # specify image to build container from
+    build: mongo-db     # specify image to build container from
     ports:
      - "27017:27017"    # specify port forwarding
